@@ -30,17 +30,18 @@ body {
   display: flex;
 }
 
+/* Base style: Isse badhane ki zarurat nahi agar target sirf phone hai */
 .poem {
-  font-size: 1.3rem; /* Font size badha diya gaya hai */
-  line-height: 1.8;  /* Line gap badhaya hai achhi readability ke liye */
+  font-size: 1.3rem;
+  line-height: 1.8;
 }
 
 button {
   margin-top: 20px;
-  padding: 15px 25px; /* Button ko thoda bada kiya hai taaki phone pe click karna aasan ho */
+  padding: 15px 25px;
   border: none;
   border-radius: 10px;
-  font-size: 1.2rem; /* Button ka text bada kiya hai */
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
 }
@@ -85,17 +86,43 @@ button {
   100% { transform: scale(1); }
 }
 
-/* Mobile Screens ke liye specific sizes */
+/* ========================================================== */
+/* AGGRESSIVE MOBILE UPDATES: Screen size small than 600px   */
+/* ========================================================== */
 @media (max-width: 600px) {
+  /* Poem ka text (kafi bada kar diya hai readability ke liye) */
   .poem { 
-    font-size: 1.2rem; /* Pehle 1rem tha, ab phone me bada dikhega */
-    line-height: 1.6;
+    font-size: 1.8rem; /* Pehle kafi chhota tha */
+    line-height: 1.9;  /* Line spacing bhi badha di taaki lines na takraye */
   }
-  h1 { font-size: 2.2rem; } /* Pehle 1.8rem tha */
-  h2 { font-size: 1.5rem; } /* Pehle 1.3rem tha */
-  p  { font-size: 1.2rem; }
+
+  /* "That's... Me ❤️" (Strong tag) */
+  .poem strong {
+    font-size: 2.2rem; 
+  }
+
+  /* Headings: "Rashmi ❤️" aur "Thank you" */
+  h1 { 
+    font-size: 3.2rem; /* Ekdum bada aur bold heading */
+    margin-bottom: 20px;
+  }
+
+  /* Proposal question: "Will you be mine forever?" */
+  h2 { 
+    font-size: 2.2rem; /* Badha diya gaya hai */
+    line-height: 1.4;
+  }
+
+  /* Thank you page ka normal text */
+  p {
+    font-size: 1.8rem; /* Poem size ke barabar */
+    margin-bottom: 15px;
+  }
+
+  /* Buttons phone par bade tap karne ke liye */
   button {
-    font-size: 1.1rem;
-    padding: 12px 20px;
+    font-size: 1.6rem;    /* Button ka text bada kar diya hai */
+    padding: 20px 30px;   /* Button ko phula diya taaki touch easy ho */
+    margin-top: 25px;
   }
 }
