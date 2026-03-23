@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
 }
 
 body {
@@ -31,16 +31,17 @@ body {
 }
 
 .poem {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.3rem; /* Font size badha diya gaya hai */
+  line-height: 1.8;  /* Line gap badhaya hai achhi readability ke liye */
 }
 
 button {
   margin-top: 20px;
-  padding: 12px 20px;
+  padding: 15px 25px; /* Button ko thoda bada kiya hai taaki phone pe click karna aasan ho */
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 1.2rem; /* Button ka text bada kiya hai */
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -84,8 +85,17 @@ button {
   100% { transform: scale(1); }
 }
 
+/* Mobile Screens ke liye specific sizes */
 @media (max-width: 600px) {
-  .poem { font-size: 1rem; }
-  h1    { font-size: 1.8rem; }
-  h2    { font-size: 1.3rem; }
+  .poem { 
+    font-size: 1.2rem; /* Pehle 1rem tha, ab phone me bada dikhega */
+    line-height: 1.6;
+  }
+  h1 { font-size: 2.2rem; } /* Pehle 1.8rem tha */
+  h2 { font-size: 1.5rem; } /* Pehle 1.3rem tha */
+  p  { font-size: 1.2rem; }
+  button {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+  }
 }
