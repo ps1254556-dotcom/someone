@@ -1,79 +1,50 @@
-// 🎵 Music play (mobile fix)
-const music = document.getElementById("bgMusic");
-
-// har click pe try karega play
-document.addEventListener("click", () => {
-  if (music.paused) {
-    music.play().catch(() => {});
-  }
-});
-
-// Next page
 function nextPage() {
-  document.getElementById("page1").classList.remove("active");
-  document.getElementById("page2").classList.add("active");
+  document.getElementById('page1').classList.remove('active');
+  document.getElementById('page2').classList.add('active');
+  setNoInitialPosition();
+  const music = document.getElementById('bgMusic');
+  if (music) music.play().catch(() => {});
 }
 
-// Buttons
-const yesBtn = document.getElementById("yes");
-const noBtn = document.getElementById("no");
+function setNoInitialPosition() {
+  const btn = document.getElementById('no');
+  btn.style.left = (window.innerWidth  / 2 + 80) + 'px';
+  btn.style.top  = (window.innerHeight / 2 + 10) + 'px';
+}
 
-// YES click
-yesBtn.addEventListener("click", () => {
-  document.getElementById("page2").classList.remove("active");
-  document.getElementById("page3").classList.add("active");
-  startHearts();
+function moveNoButton() {
+  const btn  = document.getElementById('no');
+  const btnW = btn.offsetWidth  || 100;
+  const btnH = btn.offsetHeight || 44;
+  const pad  = 20;
+  const x = Math.floor(Math.random() * (window.innerWidth  - btnW - pad * 2)) + pad;
+  const y = Math.floor(Math.random() * (window.innerHeight - btnH - pad * 2)) + pad;
+  btn.style.left = x + 'px';
+  btn.style.top  = y + 'px';
+}
+
+document.getElementById('no').addEventListener('mouseover',  moveNoButton);
+document.getElementById('no').addEventListener('touchstart', moveNoButton, { passive: true });
+
+document.getElementById('yes').addEventListener('click', function () {
+  document.getElementById('page2').classList.remove('active');
+  document.getElementById('page3').classList.add('active');
+  launchHearts();
 });
 
-// 😈 ULTRA HARD NO BUTTON
-let moveCount = 0;
-
-noBtn.addEventListener("mouseover", moveNo);
-noBtn.addEventListener("touchstart", moveNo);
-
-function moveNo() {
-  moveCount++;
-
-  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-
-  // size reduce
-  if (moveCount > 3) noBtn.style.transform = "scale(0.7)";
-  if (moveCount > 6) noBtn.style.transform = "scale(0.5)";
-
-  // text change
-  if (moveCount === 2) noBtn.innerText = "Are you sure? 😳";
-  if (moveCount === 4) noBtn.innerText = "Soch le 😏";
-  if (moveCount === 6) noBtn.innerText = "Last chance 😭";
-  if (moveCount > 8) noBtn.innerText = "Nahi bach paoge 😈";
-}
-
-// ❤️ Hearts (UPDATED PREMIUM)
-function startHearts() {
-  setInterval(() => {
-    const el = document.createElement("div");
-
-    // random heart type
-    el.innerHTML = Math.random() > 0.5 ? "❤️" : "💖";
-
-    el.classList.add("heart");
-
-    // random horizontal position
-    el.style.left = Math.random() * 100 + "vw";
-
-    // random size
-    el.style.fontSize = Math.random() * 20 + 10 + "px";
-
-    // random rotation start
-    el.style.transform = `rotate(${Math.random() * 360}deg)`;
-
-    document.body.appendChild(el);
-
+function launchHearts() {
+  const emojis = ['❤️', '💖', '💕', '💗', '💓'];
+  for (let i = 0; i < 18; i++) {
     setTimeout(() => {
-      el.remove();
-    }, 6000);
-  }, 200);
+      const el = document.createElement('div');
+      el.classList.add('heart');
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left              = Math.random() * 100 + 'vw';
+      el.style.fontSize          = (1 + Math.random() * 1.5) + 'rem';
+      el.style.animationDuration = (4 + Math.random() * 4) + 's';
+      el.style.animationDelay    = (Math.random() * 2) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 8000);
+    }, i * 200);
+  }
 }
