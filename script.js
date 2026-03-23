@@ -39,8 +39,8 @@ function launchHearts() {
       const el = document.createElement('div');
       el.classList.add('heart');
       el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      el.style.left              = Math.random() * 100 + 'vw';
-      el.style.fontSize          = (1 + Math.random() * 1.5) + 'rem';
+      el.style.left            = Math.random() * 100 + 'vw';
+      el.style.fontSize        = (1 + Math.random() * 1.5) + 'rem';
       el.style.animationDuration = (4 + Math.random() * 4) + 's';
       el.style.animationDelay    = (Math.random() * 2) + 's';
       document.body.appendChild(el);

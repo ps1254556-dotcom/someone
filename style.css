@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
 }
 
 body {
@@ -30,19 +30,17 @@ body {
   display: flex;
 }
 
-/* Base style: Isse badhane ki zarurat nahi agar target sirf phone hai */
 .poem {
-  font-size: 1.3rem;
-  line-height: 1.8;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 button {
   margin-top: 20px;
-  padding: 15px 25px;
+  padding: 12px 20px;
   border: none;
   border-radius: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -76,7 +74,7 @@ button {
 }
 
 @keyframes float {
-  0%   { transform: translateY(100vh) rotate(0deg);    opacity: 1; }
+  0%   { transform: translateY(100vh) rotate(0deg);   opacity: 1; }
   100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
 }
 
@@ -86,43 +84,8 @@ button {
   100% { transform: scale(1); }
 }
 
-/* ========================================================== */
-/* AGGRESSIVE MOBILE UPDATES: Screen size small than 600px   */
-/* ========================================================== */
 @media (max-width: 600px) {
-  /* Poem ka text (kafi bada kar diya hai readability ke liye) */
-  .poem { 
-    font-size: 1.8rem; /* Pehle kafi chhota tha */
-    line-height: 1.9;  /* Line spacing bhi badha di taaki lines na takraye */
-  }
-
-  /* "That's... Me ❤️" (Strong tag) */
-  .poem strong {
-    font-size: 2.2rem; 
-  }
-
-  /* Headings: "Rashmi ❤️" aur "Thank you" */
-  h1 { 
-    font-size: 3.2rem; /* Ekdum bada aur bold heading */
-    margin-bottom: 20px;
-  }
-
-  /* Proposal question: "Will you be mine forever?" */
-  h2 { 
-    font-size: 2.2rem; /* Badha diya gaya hai */
-    line-height: 1.4;
-  }
-
-  /* Thank you page ka normal text */
-  p {
-    font-size: 1.8rem; /* Poem size ke barabar */
-    margin-bottom: 15px;
-  }
-
-  /* Buttons phone par bade tap karne ke liye */
-  button {
-    font-size: 1.6rem;    /* Button ka text bada kar diya hai */
-    padding: 20px 30px;   /* Button ko phula diya taaki touch easy ho */
-    margin-top: 25px;
-  }
+  .poem { font-size: 1rem; }
+  h1    { font-size: 1.8rem; }
+  h2    { font-size: 1.3rem; }
 }
